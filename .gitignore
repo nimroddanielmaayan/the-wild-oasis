@@ -1,6 +1,7 @@
-node_modules
-dist build
-notes.js
 desktop.ini
+notes.js
+node_modules
+dist
+build
 secrets.txt
 .DS_Store
