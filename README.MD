@@ -25,9 +25,16 @@ Screenshot:
 
 ## Features
 
-- ...
-- ...
-- ...
+- Home screen with key metrics & charts
+- Bookings management
+- Cabins management
+- Users management
+- Settings management
+- Guest information
+- Check in and check out
+- Authentication
+- Data filtering and sorting
+- Dark mode
 
 ## Usage
 
@@ -67,8 +74,8 @@ npm run build
 
 ### Refresh the Database
 
-The data in this application is time sensitive. To refresh the database, follow
-these instructions:
+The data in this application is time-sensitive. To refresh the database (in
+SupaBase), follow these instructions:
 
 - Open the file: `src/ui/Sidebar.jsx`
 - Uncomment the Uploader component (line 23)
@@ -81,6 +88,6 @@ these instructions:
 ```
 Sample User Login
 
-nimrod@example.com (Admin)
+nimrod@example.com
 123456
 ```
