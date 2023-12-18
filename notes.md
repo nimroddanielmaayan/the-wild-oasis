@@ -2,7 +2,8 @@
 
 ## React Basics
 
-- (complete this later...)
+- A concise summary of React hooks:
+  - (complete this later, from the fireship hooks video...)
 
 ## The Wild Oasis Project
 
