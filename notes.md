@@ -2,8 +2,47 @@
 
 ## React Basics
 
-- A concise summary of React hooks:
-  - (complete this later, from the fireship hooks video...)
+- The most important concepts in React are: Components, props, state, and hooks
+
+- Hooks are a way of easily accessing the lower-level features of React. We can
+  think about them as similar to low level primitives in vanilla JS (like
+  strings, numbers, etc.)
+
+- Hooks can only be called at the top level of a component. Only when building
+  custom hooks, we can call hooks inside other functions
+
+- Custom hooks are just regular functions that call or combine other hooks
+
+### A concise summary of React hooks
+
+Basic Hooks
+
+- useState - for basic state management
+- useEffect - for hooking onto component lifecycle events. Components have 3
+  lifecycle events: Mount, update, unmount. useEffect can be used to hook onto
+  any of these events (mount -> empty dependency, update -> updated dependency,
+  unmount -> return function)
+- useContext - for context management (global state)
+
+Additional Hooks
+
+- useRef - for creating mutible values, that we can later decide when to trigger
+  a UI update (by using the useEffect hook). Also, it can be used for DOM refs
+  like triggering focus or a click
+- useReducer - similar to state, but for more complex state management like
+  Redux which uses reducers
+- useMemo - for memoization of values, which is a way of caching values so that
+  we don't need to recompute them every time. It's recommended to use it only
+  when optimizing performance
+- useCallback - for memoization of functions. It's recommended to use it only
+  when optimizing performance
+- useImperativeHandle - Rarely used. For exposing imperative API to parent
+  components (exposed by useRef)
+- useLayoutEffect - Rarely used. Similar to useEffect, but runs synchronously
+  after all DOM mutations (It will wait for the DOM to be updated before
+  running)
+- useDebugValue - for debugging custom hooks. It will define a label for the
+  custom hook in the React DevTools
 
 ## The Wild Oasis Project
 
