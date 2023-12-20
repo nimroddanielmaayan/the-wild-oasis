@@ -49,10 +49,18 @@ Additional Hooks
 - Testing without testing libraries is called "manual testing". Testing with
   testing libraries is called "automated testing"
 
+- Knowing testing is important for all developers, but especially for junior and
+  mid-level developers, since it's an important skill that is often required by
+  employers\clients and it also helps us learn to write better code
+
 - The importance of automated testing comes from several aspects: First of all,
   it helps us be more confident in our code and in our application. It also
   helps in saving time, debugging, documenting, collaborating, planning (by
   using TDD), and more
+
+- A "test suite" is a collection of tests, collected in a single file or folder
+
+- Tests are just regular functions, structured for a specific purpose
 
 - There are several popular testing libraries for React: React Testing Library,
   Jest, Vitest (For Vite, which is almost identical to Jest), Cypress, Enzyme,
@@ -70,6 +78,13 @@ Additional Hooks
   specific for React. First, the React Testing Library renders components to a
   simulated DOM and makes it available. Then, a test runner like Jest can find
   tests, run them, make assertions, and report the results
+
+- Cypress is a testing library which is different from the others because it
+  runs the tests in a real browser, with a graphical interface and a lot of
+  functionalities like recording videos, taking screenshots, etc. It's very
+  useful for end-to-end testing and makes the testing process much more visual,
+  interactive, and easy to understand. It's best used for end-to-end testing but
+  it can also be used for integration and unit testing
 
 - Testing is an especially good opportunity to use AI, which can help us a lot
   with coming up with test cases, writing tests, and running tests. Testing is
@@ -93,9 +108,10 @@ Additional Hooks
 
 - Some important React testing concepts:
 
-  - Unit testing
-  - integration testing
-  - end-to-end testing
+  - Unit testing (testing a single unit of code)
+  - integration testing (testing how several connected units of code work
+    together)
+  - end-to-end testing (testing the entire application)
   - Simulated DOM
   - Assertions
   - Mocking
