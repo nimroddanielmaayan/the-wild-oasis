@@ -123,9 +123,45 @@ Additional Hooks
   - Arrange, act, assert
 
 - Some of the most important things that we want to test in React are
+
   - Rendering
   - State changes
   - User interactions: Common user actions, core\high value actions, edge cases
+
+- End to end testing in React: There are 2 main ways of doing this - using
+  Puppeteer and using Cypress
+
+- Testing with Puppeteer can be done using the Chromium browser, which can also
+  be used for other things like web scraping
+
+- End to end tests are just regular tests, which contain a full user flow and
+  are run on a real browser and not on a virtual browser
+
+- Cypress installs with a few "getting started" tests out of the box
+
+- There's a Chrome extension named "Testing Playground" which is useful for
+  testing
+
+- It's important to remember that errors can happen because of errors in our
+  testing code, not because of the original code. We need to pay attention to
+  this because unfortunately, we don't test our test code
+
+- More things that should be tested: Things that break easily, basic React
+  components, user interactions, conditional rendering, utilities and hooks
+
+- We should try to aspire to do as many large tests rather than small ones, to
+  make sure we cover actual use cases
+
+- There's no distinct separation between the 3 types of tests. It's largely a
+  matter of subjective definition
+
+- Tests aim to check functionality, not implementation. For this purpose, they
+  try to be as implementation-agnostic as possible (for instance - react and vue
+  should be tested in the same way, and give the same results)
+
+- Mock functions allow focusing on specific functions, and testing them in an
+  in-depth way. This is useful if we have complex, critical functions that
+  require special treatment
 
 ## The Wild Oasis Project
 
