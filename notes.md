@@ -163,9 +163,25 @@ Additional Hooks
   in-depth way. This is useful if we have complex, critical functions that
   require special treatment
 
+## Tailwind CSS
+
+- Tailwind CSS is a utility-first CSS framework. It's a CSS framework that
+  doesn't have any pre-built components, but instead provides a lot of utility
+  classes that we can use to build our own components
+
+- Tailwind CSS is a very popular CSS framework, and it's very easy to use. It
+  has a lot of built-in classes that we can use to style our components, and it
+  also has a lot of built-in plugins that we can use to extend it's
+  functionality
+
+- Tailwind only adds a "thin layer" of abstraction over vanilla CSS, so it still
+  feels like writing custom CSS, only in a different way
+
+- The "Inline Fold" VSCode extension is useful when working with Tailwind CSS
+
 ## The Wild Oasis Project
 
-### SupaBase - Our Database
+### SupaBase - The Project's Database
 
 - In relational databases, the foreign key relation needs to be placed in the
   table that is "more limited". For example: If a cabin can have as many
