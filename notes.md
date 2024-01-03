@@ -169,9 +169,10 @@ Additional `Hooks`
 
 ## Tailwind CSS
 
-- `Tailwind CSS` is a utility-first CSS framework. It's a CSS framework that
-  doesn't have any pre-built components, but instead provides a lot of utility
-  classes that we can use to build our own components
+- `Tailwind CSS` is a "utility-first CSS framework". It's a CSS framework that
+  doesn't have any pre-built components (like Material UI has), but instead
+  provides a lot of `utility classes` that we can use to build our own
+  components
 
 - `Tailwind CSS` is a very popular CSS framework, and it's very easy to use. It
   has a lot of built-in classes that we can use to style our components, and it
@@ -186,6 +187,35 @@ Additional `Hooks`
 - It's also recommended to install the `Tailwind CSS IntelliSense` VSCode
   extension + the `prettier-plugin-tailwindcss` plugin (using NPM) in order to
   get better `Tailwind CSS` support in Preitter
+
+- When setting up `Tailwind CSS`, it's important to follow the docs and pay
+  attention to the recommended settings and packages
+
+- Inside `tailwind.config.js` we can set up the "theme" of the project. We can
+  set up the font family, font size, font weight, color pallete, text sizes,
+  breakpoints and so on, of the entire project for easier access. We can also
+  add useful plugins to the config file
+
+- It's possible to use `Tailwind CSS` with `JSX` (using the `className`
+  attribute) and also with `HTML` (using the `class` attribute)
+
+- Working with color: It's pretty simple, just add color utility classes. For
+  example: `text-red-500`, `bg-green-500`, etc.
+
+- Styling text: Also pretty simple, just add text utility classes. For example:
+  `text-2xl`, `text-center`, etc.
+
+- Using brackets in utility classes can add dynamic values. For example:
+  `text-[#ffffff]`, `text-[300px]`, etc.
+
+- Margin\padding: `Tailwind CSS` has a lot of margin utility classes. For
+  example: `m-4`, `mt-4`, `mx-4` `px-4` `py-3`, etc. More info in the docs
+
+- Borders: Adding borders is done with 2 attributes: One for width and one for
+  color. For example: `border-2 border-red-500`
+
+- The `space` class: A "trick" that easily adds spaceing between child elements
+  of the element on which it's used
 
 ## The Wild Oasis Project
 
