@@ -217,6 +217,29 @@ Additional `Hooks`
 - The `space` class: A "trick" that easily adds spaceing between child elements
   of the element on which it's used
 
+## Codux Summary
+
+- `Codux` is a visual editor for `React`
+
+- It's still new and expiramental, but maybe in the near furture it will become
+  more mainstream
+
+- I already have thr `Codux` editor installed (it's a seperate program, not a
+  web app). It only works with specific stacks (Vite or CRA\React\TS\certain CSS
+  libraries\some other things), so the main challange will be to find clients
+  that will be willing to work with it
+
+- I should leave `Codux` aside for now, and advance with it if I find a client
+  that wants to work with it or when it gets better (it's currently in beta and
+  still a bit "shakey")
+
+- `Codux` features component isolation, similar to `Storybook`. Components are
+  isolated inside `boards`
+
+- The fact that there's `AI` integrated into `VSCode` makes using a visual
+  editor like `Codux` a bit less advantageous, but it might still have it's
+  advantages in certain cases and for certain clients\projects
+
 ## The Wild Oasis Project
 
 ### SupaBase - The Project's Database
