@@ -182,19 +182,25 @@ Additional `Hooks`
 - `Tailwind CSS` only adds a "thin layer" of abstraction over vanilla CSS, so it
   still feels like writing custom CSS, only in a different way
 
+- "Core concepts": There are several core concepts that we need to know in
+  `Tailwind CSS`, all are covered in the docs
+
+- The best way to understand `Tailwind CSS` and how to use it in any specific
+  case is to go over the docs, which are very comprehensive and good
+
 - The `Inline Fold` VSCode extension is useful when working with Tailwind CSS
 
 - It's also recommended to install the `Tailwind CSS IntelliSense` VSCode
   extension + the `prettier-plugin-tailwindcss` plugin (using NPM) in order to
   get better `Tailwind CSS` support in Preitter
 
-- When setting up `Tailwind CSS`, it's important to follow the docs and pay
-  attention to the recommended settings and packages
+- When setting up `Tailwind CSS` in a project, it's important to follow the docs
+  and pay attention to the recommended settings and packages
 
 - Inside `tailwind.config.js` we can set up the "theme" of the project. We can
   set up the font family, font size, font weight, color pallete, text sizes,
-  breakpoints and so on, of the entire project for easier access. We can also
-  add useful plugins to the config file
+  breakpoints and so on of the entire project for easier access. We can also add
+  useful plugins to the config file
 
 - It's possible to use `Tailwind CSS` with `JSX` (using the `className`
   attribute) and also with `HTML` (using the `class` attribute)
@@ -216,6 +222,59 @@ Additional `Hooks`
 
 - The `space` class: A "trick" that easily adds spaceing between child elements
   of the element on which it's used
+
+- Responsive design: In `Tailwind CSS`, screen sizes start with mobile and go up
+  to desktop. This means that default styles are for mobile and above, and
+  custom styles are for the desired size and above. For example:
+  `md:text-center` will apply the `text-center` class only on medium screens and
+  above. Breakpoints can be configured in `tailwind.config.js`
+
+- `Flexbox`: The `flexbox` classes are very similar to the regular `Flexbox`
+  classes in CSS. For example: `flex flex-col`, `flex flex-row`, `flex-1`,
+  `justify-center`, `items-center`, etc.
+
+- `Grid`: The `grid` classes are very similar to the regular `Grid` classes in
+  CSS. For example: `grid grid-cols-2`, `grid-cols-3`, `grid-cols-4`,
+  `grid-cols-5`, etc.
+
+- It's always recommended to have `css-tricks.com` open when working with CSS,
+  especially in the context of `flexbox` and `grid`
+
+- Element states and transitions: These are similar to the regular CSS classes
+  for element states and transitions. For example: `hover:bg-red-500`,
+  `transition duration-500 ease-in-out`, etc.
+
+- `Rings`: `Rings` are a concept that `Tailwind CSS` made up. They are basically
+  a way of adding a border to an element, but with more options like drop shadow
+
+- Reusing styles with `@apply`: We can create our own utility classes by using
+  `@apply` in the `tailwind.config.js` file. For example:
+  `@apply text-center text-2xl text-red-500`. This is like creating an "old
+  school" CSS named class (and the syntax is also similar). These classes are
+  created in a `@layer`, which is yet another `Tailwind CSS` concept. Using
+  `@apply` kind of defeats the purpose of `Tailwind CSS`, so it should only be
+  used in specific cases. One such case is when we want to create a class with a
+  basic style that can be slightly modified in different places (regular
+  `Tailwind CSS` utility classes will get precedence over `@apply` utility
+  classes in the same element)
+
+- Reusing styles with React components: This is the generally preferred way of
+  reusing anything in React, including styles. Fore example: A `Button` elment
+  that accepts a state variable + the children as props
+
+- Positioning\z-index: There are utility classes for that as well
+
+- Accessing `Tailwind CSS` classes from regular CSS: This can be done using the
+  theme() function. For example: `theme('colors.red.500')`
+
+- Customizing `Tailwind CSS`: There are several ways to customize
+  `Tailwind CSS`, one of which is customizing the `default theme`, using the
+  `tailwind.config.js` file. For example: Adding custom fonts, adding custom
+  colors, adding custom utility classes, etc. The entire `default theme` can be
+  seen in the docs. Anything in this theme can be overridden. If we don't want
+  to override things but just to extend the theme, we can use the `extend`
+  object inside the `tailwind.config.js` file. This can be very useful when
+  working with a `Figma` design which has custom colors, fonts and elements
 
 ## Codux Summary
 
