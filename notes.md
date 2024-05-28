@@ -1,4 +1,4 @@
-# React - General Notes
+# The React Framework - General Notes
 
 ## React Basics
 
