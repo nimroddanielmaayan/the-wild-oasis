@@ -1,6 +1,8 @@
-# The React Framework - General Notes
+# The React Framework and Related Subjects - General Notes
 
 ## React Basics
+
+### React Basic Concepts
 
 - The most important concepts in React are: `Components`, `props`, `state`, and
   `hooks`
@@ -14,6 +16,79 @@
 
 - Custom `hooks` are just regular functions that call or combine other `hooks`
 
+### The React State Update Cycle
+
+- Whenever a state change happens, a state update cycle starts
+
+- The React `virtual DOM` is actually just a simple JS object. That's why it's
+  so "cheap" (in computing terms) to create and update iterations of it
+
+- It's important to know that any state change in a component will cause the
+  virtual DOM to re-render not only that component, but also all of it's child
+  components. This is because React is "playing it safe", since it doesn't know
+  if changes will happen in the child components as well. This is usually not a
+  problem since updating the virtual DOM is "cheap", but there are advanced
+  methods to make this process even more efficient, like `refs`
+
+- When there's a state change, the processes of `reconciliation` and `diffing`
+  are triggered. That's how React decides what changes need to be made to the
+  DOM. After that, these changes are `commited` to the DOM
+
+- The library that commits to the DOM is called `ReactDOM`. The "regular" React
+  library itself never touches the actual DOM. `ReactDOM` is only one of many
+  `React renderers`. Other `React renderers` include `React Native`, `Remotion`
+  and others. Actually, a better name would have been "React commiters", but the
+  term "renderers" is used because of historical reasons
+
+- Unlike React, `ReactDOM` works synchroneously - which means that all the
+  actual DOM updates are made in one go
+
+- The `fiber tree` is a sort of "mid phase" between the virtual DOM and the
+  actual DOM. React uses the `fiber tree` to decide how to update the actual DOM
+  in the most efficient way possible
+
+- The browser itself has a "browser paint" phase, in which it notices that
+  changes were made to the DOM and then it paints them (updates the on-screen
+  UI). This phase is the same for all front-end JS libraries
+
+- The `key` prop is an especially important React prop, since it tells the
+  diffing algorithem that an element is unique and not generic. That way React
+  knows to track changes to that element according to it's `key` and not
+  according to it's location in the DOM or other attributes
+
+- The 2 main practical use cases of `keys` are:
+
+  - In lists ("stable key")
+  - As a trigger to change state (new `key` -> new state). For example, if the
+    only change in the element is a prop change, which won't trigger a
+    re-render, we also need to change the element's key (so that react will
+    understand that we do want to update the DOM). This is less common than the
+    first use case, but it still happens sometimes
+
+- The concept of `pure functions`: Functions that have no interaction with the
+  outside world and that will always return the same value, given a certain
+  input. `pure components` are a similar concept. The `render logic` part of a
+  React component must always be "pure", since it must create a predictable UI,
+  no matter what variables it recieves. `Event handler functions` and any other
+  code parts of a component, on the other hand, don't need to be "pure" since
+  their purpose is usually to interact with the outside world. This separation
+  is an important principle in React
+
+- One common example of why the `render logic` must be "pure": If we try to
+  update the `state` or a `ref` (both are side effects) inside of the render
+  logic, we'll get the famous "React infinite loop"! Another example is the fact
+  that `props` are not mutatable, since they are part of the `render logic`
+
+- The concept of `stale state`: Because React doesn't update state immediately,
+  but only after a few milliseconds, we might get a situation where the state
+  was output to somewhere (like to a console.log) and is udated a few
+  milliseconds later. In this case we say that the output is "stale" or "not
+  refreshed"
+
+- Because of `stale state`, in order to set state based on a previous state we
+  use a callback function (in which a common practice it to use the term
+  prevState)
+
 ### A concise summary of React hooks
 
 Basic `Hooks`
@@ -23,9 +98,12 @@ Basic `Hooks`
   lifecycle events: `Mount`, `update`, `unmount`. `useEffect` can be used to
   hook onto any of these events (`mount` -> insert an empty dependency, `update`
   -> insert an updated dependency, `unmount` -> insert a return function)
-- `useContext` - for context management (global state)
+- `useContext` - for context management ("global state")
 
 Additional `Hooks`
+
+- IMPORTANT NOTE: The `useMemo`, `useCallback` and `memo` hooks are made
+  obsolete by the `React compiler` in React version 19
 
 - `useRef` - for creating mutible values, that we can later decide when to
   trigger a UI update (by using the useEffect hook). Also, it can be used for
@@ -34,9 +112,9 @@ Additional `Hooks`
   Redux which uses reducers
 - `useMemo` - for memoization of values, which is a way of caching values so
   that we don't need to recompute them every time. It's recommended to use it
-  only when optimizing performance
+  only when optimizing performance (made obsolete by the `React compiler`)
 - `useCallback` - for memoization of functions. It's recommended to use it only
-  when optimizing performance
+  when optimizing performance (made obsolete by the `React compiler`)
 - `useImperativeHandle` - Rarely used. For exposing imperative API to parent
   components (exposed by useRef)
 - `useLayoutEffect` - Rarely used. Similar to useEffect, but runs synchronously
