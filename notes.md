@@ -89,6 +89,24 @@
   use a callback function (in which a common practice it to use the term
   prevState)
 
+### React as a Library
+
+- The main difference between a JS library and a JS framework, is that a library
+  is modular and a framework has all the parts included. Since React is a
+  library, almost all applications using it need react-based third-party
+  libraries for advanced functionalities like routing, state management, forms,
+  styling, etc. For each React project, we need to mix-and-match the libraries
+  that we will use (this is also called "setup work"). This gives us more
+  freedom, but it's risks are decision fatigue and the possibility of making
+  mistakes
+
+- `Next.js`, `Remix` and `Gatsby` (amongst others) are actually not third-party
+  libraries, but `React-based frameworks` (similar to `Angular` and `Vue`). Even
+  though they are based on React they include all the functionalities that a web
+  app needs, and they are opinionated. Also, React is just front-end, while
+  these frameworks also cover back-end operations, making them
+  `full stack frameworks`
+
 ### A concise summary of React hooks
 
 Basic `Hooks`
@@ -102,7 +120,7 @@ Basic `Hooks`
 
 Additional `Hooks`
 
-- IMPORTANT NOTE: The `useMemo`, `useCallback` and `memo` hooks are made
+- IMPORTANT NOTE: The `useMemo`, `useCallback` and `memo` hooks were made
   obsolete by the `React compiler` in React version 19
 
 - `useRef` - for creating mutible values, that we can later decide when to
