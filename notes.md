@@ -112,10 +112,13 @@
 Basic `Hooks`
 
 - `useState` - for basic state management
-- `useEffect` - for hooking onto component lifecycle events. Components have 3
-  lifecycle events: `Mount`, `update`, `unmount`. `useEffect` can be used to
-  hook onto any of these events (`mount` -> insert an empty dependency, `update`
-  -> insert an updated dependency, `unmount` -> insert a return function)
+- `useEffect` - for hooking onto component lifecycle events. It's made of 2
+  parts: The effect and the dependency array. Components have 3 lifecycle
+  events: `Mount`, `update`, `unmount`. `useEffect` can be used to hook onto any
+  of these events:
+  - `mount` -> insert an empty dependency to the dependency array
+  - `update` -> insert an updated dependency to the dependency array
+  - `unmount` -> insert a return function to the dependency array
 - `useContext` - for context management ("global state")
 
 Additional `Hooks`
