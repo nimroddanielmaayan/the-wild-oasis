@@ -89,7 +89,7 @@
   use a callback function (in which a common practice it to use the term
   prevState)
 
-### React as a Library
+### React as a Library (in contrast to a framework)
 
 - The main difference between a JS library and a JS framework, is that a library
   is modular and a framework has all the parts included. Since React is a
@@ -107,21 +107,21 @@
   these frameworks also cover back-end operations, making them
   `full stack frameworks`
 
-### A concise summary of React hooks
+### A Concise Summary of React Hooks
 
-Basic `Hooks`
+Basic `Hooks`:
 
 - `useState` - for basic state management
-- `useEffect` - for hooking onto component lifecycle events. It's made of 2
-  parts: The effect and the dependency array. Components have 3 lifecycle
-  events: `Mount`, `update`, `unmount`. `useEffect` can be used to hook onto any
-  of these events:
-  - `mount` -> insert an empty dependency to the dependency array
-  - `update` -> insert an updated dependency to the dependency array
-  - `unmount` -> insert a return function to the dependency array
-- `useContext` - for context management ("global state")
+- `useEffect` - for hooking onto component lifecycle events. It's made of 3
+  parts: The effect, a cleanup function (optional) and the dependency array.
+  Components have 3 lifecycle events: `Mount`, `update`, `unmount`. We can
+  use`useEffect` to hook onto any of these events:
+  - `mount` -> an empty dependency in the dependency array
+  - `update` -> the updated dependency in the dependency array
+  - `unmount` -> a return function in the dependency array
+- `useContext` - an option for context management ("global state")
 
-Additional `Hooks`
+Additional `Hooks`:
 
 - IMPORTANT NOTE: The `useMemo`, `useCallback` and `memo` hooks were made
   obsolete by the `React compiler` in React version 19
@@ -143,6 +143,26 @@ Additional `Hooks`
   running)
 - `useDebugValue` - for debugging custom hooks. It will define a label for the
   custom hook in the React DevTools
+
+Important notes about `Hooks`:
+
+- In React, There are 2 ways of creating `effects` (actually making something
+  usefull happen in the application): `event handlers` and `useEffect`
+
+- The job of `event handlers` is to synch the application to events, and they
+  are the "preferred"\"default" way of creating `effects`
+
+- The job of the `useEffect` hook is to synch the application to external
+  systems (such as an external API)
+
+### Other Important General Notes
+
+- Since React 18, if React is in strict mode and we call a `useEffect` hook
+  during development, React will run the effect once for every function within
+  the hook. This might cause repeated console.logs and other strange behaviours
+  (that can be ignored). In production, the effect will run only once
+
+- It's always important to add `error handling` wherever errors might occur
 
 ## React Testing
 
