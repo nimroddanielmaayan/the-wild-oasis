@@ -164,6 +164,10 @@ Important notes about `Hooks`:
 
 - It's always important to add `error handling` wherever errors might occur
 
+- The `React DevTools` are a very important tool for debugging React
+  applications. In addition, there are devtools for `React Query`, `Redux`, and
+  other popular React libraries
+
 ## React Testing
 
 - Testing without testing libraries is called "manual testing". Testing with
