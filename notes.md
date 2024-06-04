@@ -139,8 +139,7 @@ Additional `Hooks`:
 - `useImperativeHandle` - Rarely used. For exposing imperative API to parent
   components (exposed by useRef)
 - `useLayoutEffect` - Rarely used. Similar to useEffect, but runs synchronously
-  after all DOM mutations (It will wait for the DOM to be updated before
-  running)
+  after all DOM mutations, and just before the browser paint
 - `useDebugValue` - for debugging custom hooks. It will define a label for the
   custom hook in the React DevTools
 
