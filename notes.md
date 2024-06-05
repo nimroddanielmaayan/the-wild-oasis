@@ -116,9 +116,9 @@ Basic `Hooks`:
   parts: The effect, a cleanup function (optional) and the dependency array.
   Components have 3 lifecycle events: `Mount`, `update`, `unmount`. We can
   use`useEffect` to hook onto any of these events:
-  - `mount` -> an empty dependency in the dependency array
-  - `update` -> the updated dependency in the dependency array
-  - `unmount` -> a return function in the dependency array
+  - `mount` -> an empty dependency array
+  - `update` -> dependency\ies in the dependency array
+  - `unmount` -> a cleanup function in the dependency array
 - `useContext` - an option for context management ("global state")
 
 Additional `Hooks`:
@@ -153,6 +153,34 @@ Important notes about `Hooks`:
 
 - The job of the `useEffect` hook is to synch the application to external
   systems (such as an external API)
+
+- The `cleanup function` in `useEffect` is optional, and it's executed on 2
+  occasions:
+
+  - when the component is unmounted
+  - before the effect is run again
+
+- A good example of a `cleanup function` is in HTTP requests. for example: The
+  user requests data by clicking a button, and then clicks a different button to
+  request different data before the first data is loaded. In this case, the
+  first request should be canceled in order to save resources
+
+- Other examples of `cleanup functions`:
+
+  - Cancel API subscriptions
+  - Stop timers
+  - Remove event listeners
+
+- Every `useEffect` should only handel one effect (this is not a "hard rule",
+  just a good practice). If we need to handle multiple effects, we should use
+  multiple `useEffect` hooks
+
+- Every `useEffect` runs on `mount`, even if it has dependencies
+
+- A single `useEffect` can run on all 3 events (`mount`, `update` and `unmount`)
+
+- To run `useEffect` on EVERY state change, we can use it with no dependency
+  array. This is not recommended and rarely done
 
 ### Other Important General Notes
 
