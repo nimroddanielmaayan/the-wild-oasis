@@ -145,6 +145,9 @@ Additional `Hooks`:
 
 Important notes about `Hooks`:
 
+- Hooks can only be called at the top level of a component, and only inside
+  React functions
+
 - In React, There are 2 ways of creating `effects` (actually making something
   usefull happen in the application): `event handlers` and `useEffect`
 
@@ -181,6 +184,15 @@ Important notes about `Hooks`:
 
 - To run `useEffect` on EVERY state change, we can use it with no dependency
   array. This is not recommended and rarely done
+
+- It's important to remove event listeners in the `cleanup function` of
+  `useEffect` hooks, otherwise a new event listener will be added every time the
+  component is re-rendered
+
+### Custom Hooks
+
+- Custom hooks are just a combination of existing hooks. One of their main
+  benefits is for easily reusing non-visual\non-UI logic
 
 ### Other Important General Notes
 
