@@ -111,7 +111,9 @@
 
 Basic `Hooks`:
 
-- `useState` - for basic state management
+- `useState` - for basic state management. NOTE: State is updated
+  asynchronously, so the new state is not available immediately after the
+  `setState` function is called (unupdated state is called "stale state")
 - `useEffect` - for hooking onto component lifecycle events. It's made of 3
   parts: The effect, a cleanup function (optional) and the dependency array.
   Components have 3 lifecycle events: `Mount`, `update`, `unmount`. We can
@@ -126,9 +128,14 @@ Additional `Hooks`:
 - IMPORTANT NOTE: The `useMemo`, `useCallback` and `memo` hooks were made
   obsolete by the `React compiler` in React version 19
 
-- `useRef` - for creating mutible values, that we can later decide when to
-  trigger a UI update (by using the useEffect hook). Also, it can be used for
-  DOM refs like triggering focus or a click
+- `useRef` - for creating updatable, mutible variables (unlike immutible React
+  state). Refs (or "references") are like regular (non-React) variables. They
+  don't trigger a UI update on change. The 3 main use cases for refs are:
+  Consistent values (like IDs), values that are not displayed on-screen, and
+  selecting\storing DOM elements. Every ref has a `.current` property, which is
+  the actual value of the ref. NOTE 1: Why `useRef` and not `let`? Because `let`
+  in a functional component gets reset on every render. NOTE 2: `useRef` is
+  updated synchronously, so it's never "stale"
 - `useReducer` - similar to state, but for more complex state management like
   Redux which uses reducers
 - `useMemo` - for memoization of values, which is a way of caching values so
