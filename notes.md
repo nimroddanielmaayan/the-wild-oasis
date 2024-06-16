@@ -136,8 +136,8 @@ Additional `Hooks`:
   the actual value of the ref. NOTE 1: Why `useRef` and not `let`? Because `let`
   in a functional component gets reset on every render. NOTE 2: `useRef` is
   updated synchronously, so it's never "stale"
-- `useReducer` - similar to state, but for more complex state management like
-  Redux which uses reducers
+- `useReducer` - similar to state, but for more complex state management
+  libraries like Redux which uses reducers
 - `useMemo` - for memoization of values, which is a way of caching values so
   that we don't need to recompute them every time. It's recommended to use it
   only when optimizing performance (made obsolete by the `React compiler`)
@@ -198,8 +198,21 @@ Important notes about `Hooks`:
 
 ### Custom Hooks
 
-- Custom hooks are just a combination of existing hooks. One of their main
+- `Custom hooks` are just a combination of existing hooks. One of their main
   benefits is for easily reusing non-visual\non-UI logic
+
+- A `custom hook` is just a "regular" function that must start with the word
+  `use` (like "useFetch") and contains other hooks. `Custom hooks` usually
+  recieve and return data (they usually return an array or an object)
+
+- It's not possible to create "regular" reusable functions that use hooks. This
+  is because hooks can only be called inside React functions
+
+- Like a reusable function, a reusable custom hook should have only one purpose
+  and should be as reusable as possible
+
+- `Custom hooks` are a way to abstract a lot of complex logic into one simple,
+  reusable hook
 
 ### Other Important General Notes
 
