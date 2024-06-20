@@ -111,45 +111,24 @@
 
 Basic `Hooks`:
 
-- `useState` - for basic state management. NOTE: State is updated
-  asynchronously, so the new state is not available immediately after the
-  `setState` function is called (unupdated state is called "stale state")
-- `useEffect` - for hooking onto component lifecycle events. It's made of 3
-  parts: The effect, a cleanup function (optional) and the dependency array.
-  Components have 3 lifecycle events: `Mount`, `update`, `unmount`. We can
-  use`useEffect` to hook onto any of these events:
-  - `mount` -> an empty dependency array
-  - `update` -> dependency\ies in the dependency array
-  - `unmount` -> a cleanup function in the dependency array
+- `useState` - for basic state management
+- `useEffect` - for hooking onto component lifecycle events
 - `useContext` - an option for context management ("global state")
 
 Additional `Hooks`:
 
 - IMPORTANT NOTE: The `useMemo`, `useCallback` and `memo` hooks were made
-  obsolete by the `React compiler` in React version 19
+  obsolete by the "React compiler" in React version 19. It's still good to know
+  about them in general, though
 
-- `useRef` - for creating updatable, mutible variables (unlike immutible React
-  state). Refs (or "references") are like regular (non-React) variables. They
-  don't trigger a UI update on change. The 3 main use cases for refs are:
-  Consistent values (like IDs), values that are not displayed on-screen, and
-  selecting\storing DOM elements. Every ref has a `.current` property, which is
-  the actual value of the ref. NOTE 1: Why `useRef` and not `let`? Because `let`
-  in a functional component gets reset on every render. NOTE 2: `useRef` is
-  updated synchronously, so it's never "stale"
-- `useReducer` - similar to state, but it's a more "advanced" version of the
-  `useState` hook. It takes 2 arguments: a reducer function and an inital state.
-  The reducer function then also takes 2 arguments: the state and an action, and
-  it can be defined to do anything we want, Like add or subtract from the state,
-  do things based on conditions, etc. It's common to dispatch (as an action) an
-  object with a `type` and a `payload` property. It's useful for complex state
-  management. It's used a lot in Redux and other state management libraries, but
-  can also be used on it's own. Theoretically, other hooks can do what
-  `useReducer` does, but `useReducer` is a much more efficient way of doing it
+- `useRef` - for creating updatable, mutible, stable variables (similar to
+  "regular" variables in JS)
+- `useReducer` - similar to state, but more advanced
 - `useMemo` - for memoization of values, which is a way of caching values so
-  that we don't need to recompute them every time. It's recommended to use it
-  only when optimizing performance (made obsolete by the `React compiler`)
-- `useCallback` - for memoization of functions. It's recommended to use it only
-  when optimizing performance (made obsolete by the `React compiler`)
+  that we don't need to recompute them every time (made obsolete by the "React
+  compiler")
+- `useCallback` - for memoization of functions (made obsolete by the "React
+  compiler")
 - `useImperativeHandle` - Rarely used. For exposing imperative API to parent
   components (exposed by useRef)
 - `useLayoutEffect` - Rarely used. Similar to useEffect, but runs synchronously
@@ -157,7 +136,69 @@ Additional `Hooks`:
 - `useDebugValue` - for debugging custom hooks. It will define a label for the
   custom hook in the React DevTools
 
-Important notes about `Hooks`:
+### More about `useState`
+
+- State is updated asynchronously, so the new state is not available immediately
+  after the `setState` function is called. Such unupdated state is often called
+  "stale state"
+
+### More about `useEffect`
+
+- `useEffect` is made of 3 parts: The effect, a cleanup function (optional) and
+  the dependency array. All components have 3 lifecycle events: `Mount`,
+  `update`, and `unmount`. We can use`useEffect` to hook onto any of these
+  events:
+  - `mount` -> an empty dependency array
+  - `update` -> dependency\ies in the dependency array
+  - `unmount` -> a cleanup function in the dependency array
+
+### More about `useRef`
+
+- Refs (or "references") are like regular (non-React) variables. They don't
+  trigger a UI update on change
+
+- The 3 main use cases for refs are:
+
+  - Consistent values (like IDs), values that are not displayed on-screen
+  - selecting\storing DOM elements
+
+- Every ref has a `.current` property, which is the actual value of the ref.
+
+- Why `useRef` and not `let`? Because in a functional component `let` gets reset
+  on every render
+
+- `useRef` is updated synchronously, so it's never "stale"
+
+### More about `useContext`
+
+- The `useContext` hook in React allows us to share data between components
+  without passing props manually at every level
+
+- It's only one of several ways to centralise data management in React. Other
+  popular ways are `context API`, `Redux`, `Zustand`, etc.
+
+- To use `useContext`, we need to create a context using the `createContext`
+  function. It takes the context object as an argument and returns the current
+  value of the context.
+
+### More about `useReducer`
+
+- `useReducer` is like "`useState` with superpowers"
+
+- It takes 2 arguments: a reducer function and an inital state. The reducer
+  function then also takes 2 arguments: the state and an action, and it can be
+  defined to do anything we want, Like add or subtract from the state, do things
+  based on conditions, etc
+
+- It's common to dispatch (as an action) an object with a `type` and a `payload`
+  property
+
+- It's useful for complex state management. It's used a lot in Redux and other
+  state management libraries, but can also be used withput them. Theoretically,
+  other hooks can do what `useReducer` does, but `useReducer` is a much more
+  efficient way of doing it
+
+### Other general notes on `Hooks`
 
 - Hooks can only be called at the top level of a component, and only inside
   React functions
@@ -203,6 +244,30 @@ Important notes about `Hooks`:
   `useEffect` hooks, otherwise a new event listener will be added every time the
   component is re-rendered
 
+- Since React 18, if React is in strict mode and we call a `useEffect` hook
+  during development, React will run the effect once for every function within
+  the hook. This might cause repeated console.logs and other strange behaviours
+  (that can be ignored). In production, the effect will run only once
+
+- It's always important to add `error handling` wherever errors might occur
+
+- The `React DevTools` are a very important tool for debugging React
+  applications. In addition, there are devtools for `React Query`, `Redux`, and
+  other popular React libraries
+
+- Lesson 187 ("Yet Another Hook: useReducer") and lesson 189 ("Managing State
+  With useReducer") have the best explanations of `useReducer` that I've seen so
+  far
+
+- A "reducer" is called as such because it usually "reduces" several possible
+  inputs into a single output, according to it's conditions
+
+- One of the main advantages of `useReducer` is that it concentrates all the
+  logic of the state in one place. This lets us decouple the state logic from
+  the component, making the components much leaner
+
+- "reducers" must be pure functions, and they must always return a new state
+
 ### Custom Hooks
 
 - `Custom hooks` are just a combination of existing hooks. One of their main
@@ -220,28 +285,6 @@ Important notes about `Hooks`:
 
 - `Custom hooks` are a way to abstract a lot of complex logic into one simple,
   reusable hook
-
-### Other Important General Notes
-
-- Since React 18, if React is in strict mode and we call a `useEffect` hook
-  during development, React will run the effect once for every function within
-  the hook. This might cause repeated console.logs and other strange behaviours
-  (that can be ignored). In production, the effect will run only once
-
-- It's always important to add `error handling` wherever errors might occur
-
-- The `React DevTools` are a very important tool for debugging React
-  applications. In addition, there are devtools for `React Query`, `Redux`, and
-  other popular React libraries
-
-- Lesson 187 ("Yet Another Hook: useReducer") and lesson 189 ("Managing State
-  With useReducer") have the best explanations of `useReducer` that I've seen so
-  far
-
-- A "reducer" is called as such because it usually "reduces" several possible
-  inputs into a single output, according to it's conditions. One of the main
-  advantages of `useReducer` is that it concentrates all the logic of the state
-  in one place
 
 ## React Testing
 
