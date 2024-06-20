@@ -136,8 +136,15 @@ Additional `Hooks`:
   the actual value of the ref. NOTE 1: Why `useRef` and not `let`? Because `let`
   in a functional component gets reset on every render. NOTE 2: `useRef` is
   updated synchronously, so it's never "stale"
-- `useReducer` - similar to state, but for more complex state management
-  libraries like Redux which uses reducers
+- `useReducer` - similar to state, but it's a more "advanced" version of the
+  `useState` hook. It takes 2 arguments: a reducer function and an inital state.
+  The reducer function then also takes 2 arguments: the state and an action, and
+  it can be defined to do anything we want, Like add or subtract from the state,
+  do things based on conditions, etc. It's common to dispatch (as an action) an
+  object with a `type` and a `payload` property. It's useful for complex state
+  management. It's used a lot in Redux and other state management libraries, but
+  can also be used on it's own. Theoretically, other hooks can do what
+  `useReducer` does, but `useReducer` is a much more efficient way of doing it
 - `useMemo` - for memoization of values, which is a way of caching values so
   that we don't need to recompute them every time. It's recommended to use it
   only when optimizing performance (made obsolete by the `React compiler`)
@@ -226,6 +233,15 @@ Important notes about `Hooks`:
 - The `React DevTools` are a very important tool for debugging React
   applications. In addition, there are devtools for `React Query`, `Redux`, and
   other popular React libraries
+
+- Lesson 187 ("Yet Another Hook: useReducer") and lesson 189 ("Managing State
+  With useReducer") have the best explanations of `useReducer` that I've seen so
+  far
+
+- A "reducer" is called as such because it usually "reduces" several possible
+  inputs into a single output, according to it's conditions. One of the main
+  advantages of `useReducer` is that it concentrates all the logic of the state
+  in one place
 
 ## React Testing
 
