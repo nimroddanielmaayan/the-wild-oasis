@@ -286,6 +286,35 @@ Additional `Hooks`:
 - `Custom hooks` are a way to abstract a lot of complex logic into one simple,
   reusable hook
 
+## Routing, React Router and SPAs
+
+- `React Router` is the most popular routing library for React
+
+- SPAs (Single Page Applications) are web applications that load a single HTML
+  file and dynamically update the page as the user interacts with the app
+
+- Note: In Next.js, routing is built-in and doesn't require a separate library
+  like React Router. It's done differently than in simple SPAs
+
+- The main components of `React Router` are - `BrowserRouter`, `Route`, `Link`,
+  and `Switch`:
+
+  - The `BrowserRouter` component is the root component of the router. It uses
+    the HTML5 history API to keep the UI in sync with the URL
+
+  - The `Route` component is used to render a component based on the URL
+
+  - The `Link` component is used to navigate between different routes
+
+  - The `Switch` component is used to render the first child `Route` or
+    `Redirect` that matches the location
+
+  - `useNavigate` is a hook that returns a navigate function that can be used to
+    navigate to a different route
+
+- Storing state in the URL: Why would we want to store state in the URL and not
+  in memory? Mostly because it makes the app more shareable and bookmarkable.
+
 ## React Testing
 
 - Testing without testing libraries is called "manual testing". Testing with
@@ -408,6 +437,34 @@ Additional `Hooks`:
   in-depth way. This is useful if we have complex, critical functions that
   require special treatment
 
+## React Styling
+
+- Since React is a library and not a framework, it's not opinionated when it
+  comes to styling. Any styling method can be used, according to the project
+  needs
+
+- Main methods of styling React components:
+
+  - `Inline styles`: Styles that are written directly in the JSX code. This is
+    the least recommended way of styling
+
+  - `Global CSS\SASS file`: A possible way of styling React components, but
+    global styles can be hard to manage and can cause conflicts
+
+  - `CSS Modules`: One external style file per component
+
+  - `CSS-in-JS`: CSS in the JavaScript. This is a very popular way of styling
+    React components. Some of the libraries that help do this are
+    `Styled Components` and `Emotion`
+
+  - `Utility-first CSS`: Styling React components usin pre-defined utility
+    classes. The most popular library for this is `Tailwind CSS`
+
+  - `UI libraries`: Libraries like `Material UI`, `Chakra UI`, `React Bootstrap`
+    and `Mantine` that provide pre-built components and styles. This is
+    especially good for small projects since it saves a ton of time on building
+    UI
+
 ## Tailwind CSS
 
 - `Tailwind CSS` is a "utility-first CSS framework". It's a CSS framework that
@@ -516,6 +573,14 @@ Additional `Hooks`:
   to override things but just to extend the theme, we can use the `extend`
   object inside the `tailwind.config.js` file. This can be very useful when
   working with a `Figma` design which has custom colors, fonts and elements
+
+## React Performance Optimization (optional)
+
+- Since React 19, the "React Compiler" is built-in to React, and it makes
+  "memoization" and "lazy loading" automatic. Still, it's good to understand
+  these concepts
+
+-
 
 ## Codux Summary
 
