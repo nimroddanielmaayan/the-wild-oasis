@@ -315,6 +315,18 @@ Additional `Hooks`:
 - Storing state in the URL: Why would we want to store state in the URL and not
   in memory? Mostly because it makes the app more shareable and bookmarkable.
 
+## Redux and Redux Toolkit
+
+- (complete this...)
+
+## React Router with Data Loading
+
+- (complete this...)
+
+## Next.js
+
+- (complete this...)
+
 ## React Testing
 
 - Testing without testing libraries is called "manual testing". Testing with
@@ -576,13 +588,70 @@ Additional `Hooks`:
 
 ## React Performance Optimization (optional)
 
+### General
+
 - Since React 19, the "React Compiler" is built-in to React, and it makes
   "memoization" and "lazy loading" automatic. Still, it's good to understand
   these concepts
 
--
+- There are 3 main ways of optimizing React applications:
+  - Preventing unnecessary re-renders
+  - Improving app speed\responsiveness
+  - Reducing bundle size
 
-## Codux Summary
+### The "Profiler" React Developer Tool
+
+- We usually use the "Components" tab of the React dev tools, but the "Profiler"
+  tab is also important. It shows us the renders and re-renders, including how
+  long everything took
+
+- It's important to review the Profiler's settings and to set the "record why
+  each component rendered" option to "on"
+
+- To start recoeding, click the "record" button in the Profiler tab and start
+  doing stuff
+
+### Memoization
+
+- `Memoization` is an optimization method. If a pure function is called, it's
+  result is saved. Then, if it's called again with the same parameters, it the
+  result will be taken from memory. This makes sense since pure functions always
+  work the same. The same is true for React components, which are also pure
+  functions (they always return the same UI for the same props)
+
+- If `Memoization` is done manually (in React 18 and below), it can be done at
+  the final stages of the app's development, when everything is working and we
+  only need to make it faster
+
+- `Memoization` only affects props. If a component has a state that changes, it
+  will always re-render
+
+- A `wasted render` is a render that takes place when a prop is changed, but it
+  doesn't change anything in the UI
+
+- There's no need to momoize everything. Only the components that are noticeably
+  slow to render and\or that re-render often should be memoized. Otherwise, we
+  will add unnessecary complexity to the code or even slow it down
+
+- To use the `memo` function, we need to wrap the component in a `memo` function
+  and save it as a variable
+
+- To use the `useMemo` hook, we need to pass a function that returns the value
+  that we want to memoize, and an array of dependencies
+
+- Why do we also need `useMemo` if we have `memo`? Because if a component
+  recieves an object as a prop, `memo` will compare the object's reference in
+  memory, which is always different in JS
+
+- `useCallback` is simply a specific use case of `useMemo`. It's used to memoize
+  "regular" functions (which aren't components)
+
+- `useMemo` and `useCallback` both have a dependency array, like `useEffect`.
+
+- (I can continue this chapter if I need this information in the future. I
+  stopped after lesson #248)
+
+## Codux Summary (optional)
 
 - `Codux` is a visual editor for `React`
 
@@ -605,7 +674,7 @@ Additional `Hooks`:
   editor like `Codux` a bit less advantageous, but it might still have it's
   advantages in certain cases and for certain clients\projects
 
-## The Wild Oasis Project
+## The Wild Oasis Project (optional)
 
 ### SupaBase - The Project's Database
 
