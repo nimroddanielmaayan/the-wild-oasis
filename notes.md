@@ -1,6 +1,6 @@
-# The React Framework and Related Subjects - General Notes
+# The React Library and Related Subjects - General Notes
 
-## React Basics
+## React Basics and React Hooks
 
 ### React Basic Concepts
 
@@ -315,6 +315,10 @@ Additional `Hooks`:
 - Storing state in the URL: Why would we want to store state in the URL and not
   in memory? Mostly because it makes the app more shareable and bookmarkable.
 
+## React Router with Data Loading (version 6.4 and above)
+
+- (complete this...)
+
 ## Redux and Redux Toolkit
 
 ### Introduction to Redux
@@ -382,10 +386,6 @@ Additional `Hooks`:
   "local mini-backend". Just like we have proper rules for interacting with a
   remote backend, we have proper rules for interacting with a local global data
   store
-
-## React Router with Data Loading (version 6.4 and above)
-
-- (complete this...)
 
 ## Next.js
 
