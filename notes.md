@@ -317,9 +317,73 @@ Additional `Hooks`:
 
 ## Redux and Redux Toolkit
 
-- (complete this...)
+### Introduction to Redux
 
-## React Router with Data Loading
+- `Redux` is a very popular 3rd party library for managing global state in
+  React. There are other similar libraries like `Zustand`, `Recoil`, `MobX`, and
+  more
+
+- All global state is stored in a single globally accessible store. This store
+  is updated using `actions`
+
+- There are 2 versions of `Redux` - the `classic Redux` and
+  `modern Redux toolkit`. Almost all new projects use the `modern Redux toolkit`
+
+- Understanding the `useReducer` hook is crucial for understanding `Redux`. The
+  word "Redux" itself comes from the word "reducer"
+
+- Reminder: a `reducer` is a pure function that takes the previous state, and an
+  action, and "reduces" all the possible next states into one desired next
+  state, according to the rules we define
+
+- `Redux` in nutoriously hard to learn, but that means that knowing it is very
+  valuable. Also, similar global state management libraries have very similar
+  principles. This is why knowing `Redux` is important even though not all React
+  projects require it
+
+- `RTK Query` (React ToolKit Query) is a library that is part of the
+  `Redux Toolkit`. It's used for making API requests and managing the state of
+  the data that comes back from the API\backend. It's an alternative to other
+  backend-querying libraries like `React Query`
+
+- In a lot of modern web applications all global state is remote, so that it's
+  always saved under the use's profile and never lost. This is called
+  `remote global state`. So why use `local global state`? Because it's faster
+  (no backend requests) and it still makes more sense in many cases. Like for
+  unlogged\anonimous users, or for temporary data that doesn't need to be saved
+  long-term (like data for a complex search\filter)
+
+### How Redux Works
+
+- Lesson #261 has a good explanation of the mechanism of `Redux`
+
+- `Redux` works similarly to `useReducer`, with a few key differences:
+
+  - Instead of being dispatched to a single reducer function, an `action` is
+    dispatched to the global store. In the store, there are many reducers, each
+    of which is responsible for a different feature of the application
+  - Instead of creating `actions` manually, `Redux Toolkit` has an
+    `action creator` function that creates `actions` for us (this is a
+    convention, not a must. but it's very recommended)
+
+- It's critical to understand the `Redux cycle` in order to understand `Redux`.
+  This cycle starts with an event happening in the application, and it ends with
+  a re-render of the UI
+
+- One of the main philosophies of `Redux` is to seperate the
+  `state update logic` from the rest of the application
+
+- It's useful to think about `reducers` and `Redux` like a "bank". Someone wants
+  to interact with the bank's vault, but they can't do it directly - they need
+  to send a proper request to the bank, which will handle it according to it's
+  rules and send back a response
+
+- It's also possible to think of a state management library like `Redux` as a
+  "local mini-backend". Just like we have proper rules for interacting with a
+  remote backend, we have proper rules for interacting with a local global data
+  store
+
+## React Router with Data Loading (version 6.4 and above)
 
 - (complete this...)
 
