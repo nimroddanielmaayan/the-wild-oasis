@@ -288,6 +288,8 @@ Additional `Hooks`:
 
 ## Routing, React Router and SPAs
 
+### General
+
 - `React Router` is the most popular routing library for React
 
 - SPAs (Single Page Applications) are web applications that load a single HTML
@@ -309,15 +311,30 @@ Additional `Hooks`:
   - The `Switch` component is used to render the first child `Route` or
     `Redirect` that matches the location
 
-  - `useNavigate` is a hook that returns a navigate function that can be used to
-    navigate to a different route
+- `useNavigate` is a hook that's specific to `React Router`. It returns a
+  navigate function that can be used to navigate to a different route
 
-- Storing state in the URL: Why would we want to store state in the URL and not
-  in memory? Mostly because it makes the app more shareable and bookmarkable.
+- Storing state in the URL: Why would we want to store state inside the URL and
+  not in memory? Mainly because it makes the app more shareable and
+  bookmarkable.
 
-## React Router with Data Loading (version 6.4 and above)
+### Data Loading in React Router (version 6.4 and above)
 
-- (complete this...)
+- Since version 6.4, `React Router` added a new feature called `data loading`.
+  This allows us to load data before rendering a route - an approach called
+  "render as you fetch" (rather than "fetch as you render").
+
+- `Data loading` is convienient because it allows us to load data before the
+  component is rendered in a very straightforward way. Rather than rendering,
+  loading data and then re-rendering, we can just render the component once
+
+- `Data loading` doesn't replace full remote state management libraries, because
+  it can only fetch the remote data. It can't send data back to the server
+
+- In case of a project that has complex remote state management, it's
+  recommended to use a full remote state management library like `React Query`
+  for all remote fetching and sending. `React Router`'s `Data loading` is mainly
+  for simple cases\projects
 
 ## Redux and Redux Toolkit
 
@@ -515,6 +532,8 @@ Additional `Hooks`:
 
 ## React Styling
 
+### General
+
 - Since React is a library and not a framework, it's not opinionated when it
   comes to styling. Any styling method can be used, according to the project
   needs
@@ -541,7 +560,7 @@ Additional `Hooks`:
     especially good for small projects since it saves a ton of time on building
     UI
 
-## Tailwind CSS
+### Tailwind CSS
 
 - `Tailwind CSS` is a "utility-first CSS framework". It's a CSS framework that
   doesn't have any pre-built components (like Material UI has), but instead
@@ -649,6 +668,31 @@ Additional `Hooks`:
   to override things but just to extend the theme, we can use the `extend`
   object inside the `tailwind.config.js` file. This can be very useful when
   working with a `Figma` design which has custom colors, fonts and elements
+
+## React Project Planning and Management
+
+### General
+
+- There's no one way to plan and manage a React project, and the course of a
+  project never goes perfectly according to a plan. But this is a general basic
+  guideline that Jonas recommends for starting a new React project:
+
+  - Step 1: Gather the application requirements and features from the client (in
+    other words - the "business logic")
+
+  - Step 2: Devide the application into pages and design the UI
+
+    - Plan the desired UI. Overall UI and the page-level UI
+    - Break the desired UI into React components
+    - Design a static version in Figma\AdobeXD. Start with a wireframe and
+      continue to the final design, including user flow simulations
+
+  - Step 3: Devide the application into feature categories
+
+    - Plan the application's state management and data flow
+
+  - Step 4: Decide on which React-compatible libraries to use (technology\stack
+    decisions)
 
 ## React Performance Optimization (optional)
 
