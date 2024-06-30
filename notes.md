@@ -439,6 +439,13 @@ Additional `Hooks`:
     the store
   - The `action` reaches the store and the `Redux cycle` continues
 
+### Redux Devtools
+
+- `Redux Devtools` is a browser extension that helps us debug `Redux`
+  applications
+
+- ... (complete this)
+
 ## Next.js
 
 - (complete this...)
