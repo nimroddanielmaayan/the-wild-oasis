@@ -400,9 +400,44 @@ Additional `Hooks`:
   rules and send back a response
 
 - It's also possible to think of a state management library like `Redux` as a
-  "local mini-backend". Just like we have proper rules for interacting with a
-  remote backend, we have proper rules for interacting with a local global data
-  store
+  "local mini-backend". Just like we have rules for properly interacting with a
+  remote backend, we have rules for properly interacting with a local global
+  data store
+
+### Redux Middleware and Thunks
+
+- `Middleware` is a way of adding extra functionality to `Redux`. It's a
+  function that runs after the `dispatch` of an `action` and before it reaches
+  the reducer
+
+- In other words, `middleware` is a function that runs in the middle of the
+  `Redux cycle`
+
+- The `Middleware` is the preferred place for side effects in `Redux`. It's
+  where we can do things like asynch API calls, timers, analytics, logging, etc
+
+- It's technically possible to run side effects inside the components and not in
+  the `middleware`, but it's always better to centralize all the side effects in
+  one place
+
+- `Thunks` is a popular `middleware` library for `Redux`. It handles asynch
+  operations in an efficient way. It's technically possible to write our own
+  `middleware` in `Redux` but it's not recommended
+
+- The word "thunk" is a general programming term. It means a function that
+  injects a calculation into another function. It comes from the word "think"
+  (as in adding another "think" into an existing function)
+
+- An example of a `thunk` in `Redux`:
+  - A UI component dispatches an `action` with an order to withdraw the total
+    amount of money from a bank account. The `action`'s "type" is known at this
+    point, but the "payload" isn't
+  - On it's way to the store, the `action` passes through the `thunk`
+    middleware. An API call is made to the bank to check the amount of money in
+    the account
+  - The "payload" of the `action` is updated and the `action` is dispatched to
+    the store
+  - The `action` reaches the store and the `Redux cycle` continues
 
 ## Next.js
 
