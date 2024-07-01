@@ -444,7 +444,7 @@ Additional `Hooks`:
 - `Redux Devtools` is a browser extension that helps us debug `Redux`
   applications
 
-- ... (complete this)
+- ... (complete this part)
 
 ## Next.js
 
