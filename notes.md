@@ -367,12 +367,19 @@ Additional `Hooks`:
   the data that comes back from the API\backend. It's an alternative to other
   backend-querying libraries like `React Query`
 
+- Even though built-in tools for remote state management like `RTK Query` exist,
+  it's recommended to use them only for simple cases. For more complex cases
+  it's better to use a "full remote state management" library like `React Query`
+  for all of our querying, and not to mix the two
+
 - In a lot of modern web applications all global state is remote, so that it's
   always saved under the use's profile and never lost. This is called
-  `remote global state`. So why use `local global state`? Because it's faster
-  (no backend requests) and it still makes more sense in many cases. Like for
-  unlogged\anonimous users, or for temporary data that doesn't need to be saved
-  long-term (like data for a complex search\filter)
+  `remote global state`. So why should we still use `local global state`?
+  Because it's faster (no backend requests) and it still makes more sense in
+  many cases. Like for unlogged\anonimous users, or for temporary data that
+  doesn't need to be saved long-term (like data for a complex search\filter). In
+  addition, it saves valuable server resources by making the application depend
+  less on the backend
 
 ### How Redux Works
 
@@ -444,7 +451,42 @@ Additional `Hooks`:
 - `Redux Devtools` is a browser extension that helps us debug `Redux`
   applications
 
-- ... (complete this part)
+- To install `Redux Devtools` (I need to check their website to see if this is
+  up-to-date):
+
+  - Install the `Redux Devtools` extension in the browser
+  - In the console: npm i redux-devtools-extension
+  - In the store: import { composeWithDevTools } from 'redux-devtools-extension'
+
+- The `Redux Devtools` have a lot of good features, like:
+  - Time travel debugging
+  - Sending manual actions
+  - Visualizations of the state
+  - And more
+
+### The Redux Toolkit (RTK)
+
+- `RTK` is the modern and preffered way of writing `Redux`. It's opinionated, it
+  forces best practices, and it's 100% compatible with "classic" `Redux`
+  (meaning that both can be used together in the same project)
+
+- `RTK` is a collection of tools that help us write `Redux` in a more efficient
+  and faster way. It includes `RTK Query`, `RTK Thunks`, `RTK Slice`, and more.
+  It's similar to `express.js` in `Node.js` in the sense that it abstracts
+  complex code into simpler code
+
+- Behind the scenes `RTK` uses the `Immer` library to make the state immutable.
+  This allows us to write state updates in a way that looks mutable, but it's
+  actually not
+
+- `RTK` automatically creates `action creators`
+
+- `RTK` automatically sets up `thunk` middleware and devtools
+
+- When should we use `Redux` and when should we use React's built-in
+  `context API`? In general, the `context API` is only a good choice for small
+  and simple applications. For any large\complex application, `Redux` or a
+  similar library is a must
 
 ## Next.js
 
