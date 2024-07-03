@@ -490,7 +490,29 @@ Additional `Hooks`:
 
 ## Next.js
 
-- (complete this...)
+- `Next.js` is a framework, not a library. It's built on top of `React` and it's
+  opinionated, meaning that it has it's own mandatory ways of doing things
+
+- `Next.js` is a full-stack framework, meaning that it includes both front-end
+  and back-end capabilities. There are advantages and disadvantages to having
+  the back-end and front-end in the same code base
+
+- One of the main features of `Next.js` and similar libraries is `SSR`
+  (Server-Side Rendering). This is similar to the "old way" of rendering web
+  applications (on the server only), but in the modern era the idea is to
+  combine `SSR` with `CSR` (Client-Side Rendering) in the best possible way
+
+- The idea of `Next.js` and similar libraries is to "blur the lines" between
+  `SSR` and `CSR`. This is done (amongs other things) by using the 2 types of
+  `SSR`:
+
+  - `SSG` (Static Site Generation) - all HTML is generated at build time. This
+    is the "old way" of generating HTML on the server
+  - `ISR` (Incremental Static Regeneration) - HTML is generated every time the
+    server recieves a new request. This is the "new way" of generating HTML on
+    the server
+
+-
 
 ## React Testing
 
