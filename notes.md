@@ -490,6 +490,8 @@ Additional `Hooks`:
 
 ## Next.js
 
+### Next.js Basics
+
 - `Next.js` is a framework, not a library. It's built on top of `React` and it's
   opinionated, meaning that it has it's own mandatory ways of doing things
 
@@ -512,7 +514,33 @@ Additional `Hooks`:
     server recieves a new request. This is the "new way" of generating HTML on
     the server
 
--
+### Next.js Hydration
+
+- `Hydration`: The process of turning static HTML into a fully interactive
+  application. This is done by `React` on the client side, after the static HTML
+  is sent from the server
+
+- `Hydration` "waters" the "dry" HTML from the server, turning it into a react
+  app which is the same as a react app that would have been rendered on the
+  client side
+
+### Next.js Key Ingredients
+
+- Next.js's key ingredients are:
+
+  1. Server-Side Rendering (SSR): Both dynamic and static. for each route,
+     either dynamic or static rendering can be selected
+
+  2. File-based routing: Folders are used as routes. There are special files for
+     pages, layouts, loaders, and more
+
+  3. Data fetching and mutations on the server: Fetching data directly in
+     `server components` and mutating data on the server with `server actions`
+
+  4. Optimizations: To images, fonts, SEO, preloading and more
+
+- The modern way of appllying routing in `Next.js` is the `app router`, not the
+  `pages router`
 
 ## React Testing
 
