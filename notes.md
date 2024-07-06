@@ -542,6 +542,40 @@ Additional `Hooks`:
 - The modern way of appllying routing in `Next.js` is the `app router`, not the
   `pages router`
 
+### React Server Components (RSCs) - the Heart of Next.js
+
+- `RSC`s are the most important feature of `Next.js`. They allow us to render
+  components on the server, and then hydrate them on the client. They attempt to
+  combine the best of both worlds - `SSR` and `CSR`
+
+- `RSC`s extend the React component model to the back end. This means that for
+  the first time, both the FE and the BE can be built with React. Also, both can
+  be built using the same underlying logic
+
+- Build tools like `Vite` are designed for FE frameworks, and they can't be used
+  for `Next.js`'. That's why `Next.js` has it's own build tool. The default
+  compoonent type in `Next.js` is the `server component`, and in order to create
+  a `client component` we need to add the `use client` directive at the top of a
+  file
+
+- The rules for deciding between `server components` and `client components`:
+
+  - Any component that can't be interacted with should be a `server component`,
+    the default kind of component. Even if it contains sub-components that can
+    be interacted with
+
+  - Any component that can be interacted with (like a button or a text box)
+    should be a `client component`
+
+  - Any descendent of a `client component` is automatically a `client component`
+    (there's no need to add the `use client` directive)
+
+  - The boundary between `server components` and `client components` is called
+    the `server-client boundary`. This is an important concept in `Next.js`
+
+  - Usually, the top level component of a page are `server components`, and the
+    lower level components are `client components`
+
 ## React Testing
 
 - Testing without testing libraries is called "manual testing". Testing with
