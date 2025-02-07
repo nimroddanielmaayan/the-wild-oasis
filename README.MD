@@ -106,6 +106,6 @@ SupaBase), follow these instructions:
 ```
 Sample User Login
 
-nimrod@example.com
-123456
+user@example.com
+12345678
 ```
