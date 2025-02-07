@@ -13,6 +13,7 @@ Screenshot:
 ## Table of Contents
 
 - [Features](#features)
+- [Stack](#stack)
 - [Usage](#usage)
   - [Application Variables](#application-variables)
   - [Install Dependencies)](#install-dependencies)
@@ -36,11 +37,28 @@ Screenshot:
 - Data filtering and sorting
 - Dark mode
 
+## Stack
+
+### Front End
+
+- React
+- React Query
+- React Router
+- React Hook Form
+- React Hot Toast
+- React Icons
+- Recharts
+- Styled Components
+
+### Back End
+
+- SupaBase
+
 ## Usage
 
 - The application's entire back end (database + API) is hosted on SupaBase
-- If you want to set up your own database + API for this application, you can do
-  so here - [SupaBase](https://supabase.com)
+- If you want to fork the project and set up your own database + API for this
+  application, you can do so here - [SupaBase](https://supabase.com)
 
 ### Application Variables
 
