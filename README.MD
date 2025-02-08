@@ -12,6 +12,7 @@ Screenshot:
 
 ## Table of Contents
 
+- [Login Credentials](#login-credentials)
 - [Features](#features)
 - [Stack](#stack)
 - [Usage](#usage)
@@ -20,9 +21,17 @@ Screenshot:
   - [Run](#run)
 - [Build & Deploy](#build--deploy)
   - [Refresh the Database](#refresh-the-database)
-- [Login Credentials](#login-credentials)
 
 <!-- tocstop -->
+
+## Login Credentials
+
+```
+Sample User Login
+
+user@example.com
+12345678
+```
 
 ## Features
 
@@ -93,19 +102,8 @@ npm run build
 ### Refresh the Database
 
 The data in this application is time-sensitive. To refresh the database (in
-SupaBase), follow these instructions:
+SupaBase), click one of these buttons on the bottom left (inside the "SAMPLE
+DATA" box):
 
-- Open the file: `src/ui/Sidebar.jsx`
-- Uncomment the Uploader component (line 23)
-- A button will appear on the front end. Click it to refresh the data (this will
-  also delete all existing data)
-- Comment out the Uploader component
-
-## Login Credentials
-
-```
-Sample User Login
-
-user@example.com
-12345678
-```
+- "Upload ALL": Replace all data with new sample data
+- "Upload bookings ONLY": Replace only the bookings data with new sample data
