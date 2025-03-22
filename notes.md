@@ -28,7 +28,8 @@
   components. This is because React is "playing it safe", since it doesn't know
   if changes will happen in the child components as well. This is usually not a
   problem since updating the virtual DOM is "cheap", but there are advanced
-  methods to make this process even more efficient, like `refs`
+  methods to make this process even more efficient (in advanced versions of
+  React, this is done automatically)
 
 - When there's a state change, the processes of `reconciliation` and `diffing`
   are triggered. That's how React decides what changes need to be made to the
@@ -58,7 +59,7 @@
 
 - The 2 main practical use cases of `keys` are:
 
-  - In lists ("stable key")
+  - In lists ("stable key"). This is the common use case
   - As a trigger to change state (new `key` -> new state). For example, if the
     only change in the element is a prop change, which won't trigger a
     re-render, we also need to change the element's key (so that react will
@@ -101,11 +102,11 @@
   mistakes
 
 - `Next.js`, `Remix` and `Gatsby` (amongst others) are actually not third-party
-  libraries, but `React-based frameworks` (similar to `Angular` and `Vue`). Even
-  though they are based on React they include all the functionalities that a web
-  app needs, and they are opinionated. Also, React is just front-end, while
-  these frameworks also cover back-end operations, making them
-  `full stack frameworks`
+  libraries, but `React-based frameworks` (similar to `Angular` and `Vue`, which
+  are frameworks). Even though they are based on React they include all the
+  functionalities that a web app needs, and they are opinionated. Also, React is
+  just front-end, while these frameworks also cover back-end operations, making
+  them `full stack frameworks`
 
 ### A Concise Summary of React Hooks
 
@@ -113,7 +114,7 @@ Basic `Hooks`:
 
 - `useState` - for basic state management
 - `useEffect` - for hooking onto component lifecycle events
-- `useContext` - an option for context management ("global state")
+- `useContext` - a simple option for context management ("global state")
 
 Additional `Hooks`:
 
@@ -255,9 +256,9 @@ Additional `Hooks`:
   applications. In addition, there are devtools for `React Query`, `Redux`, and
   other popular React libraries
 
-- Lesson 187 ("Yet Another Hook: useReducer") and lesson 189 ("Managing State
-  With useReducer") have the best explanations of `useReducer` that I've seen so
-  far
+- In the Udemy course, lesson 187 ("Yet Another Hook: useReducer") and lesson
+  189 ("Managing State With useReducer") have the best explanations of
+  `useReducer` that I've seen so far
 
 - A "reducer" is called as such because it usually "reduces" several possible
   inputs into a single output, according to it's conditions
@@ -554,7 +555,7 @@ Additional `Hooks`:
 
 - Build tools like `Vite` are designed for FE frameworks, and they can't be used
   for `Next.js`'. That's why `Next.js` has it's own build tool. The default
-  compoonent type in `Next.js` is the `server component`, and in order to create
+  component type in `Next.js` is the `server component`, and in order to create
   a `client component` we need to add the `use client` directive at the top of a
   file
 
@@ -573,7 +574,7 @@ Additional `Hooks`:
   - The boundary between `server components` and `client components` is called
     the `server-client boundary`. This is an important concept in `Next.js`
 
-  - Usually, the top level component of a page are `server components`, and the
+  - Usually, the top level components of a page are `server components`, and the
     lower level components are `client components`
 
 ## React Testing
@@ -772,7 +773,7 @@ Additional `Hooks`:
 - Styling text: Also pretty simple, just add text utility classes. For example:
   `text-2xl`, `text-center`, etc.
 
-- Using brackets in utility classes can add dynamic values. For example:
+- Using brackets in utility classes can add specific values. For example:
   `text-[#ffffff]`, `text-[300px]`, etc.
 
 - Margin\padding: `Tailwind CSS` has a lot of margin utility classes. For
@@ -848,14 +849,14 @@ Additional `Hooks`:
   - Step 1: Gather the application requirements and features from the client (in
     other words - the "business logic")
 
-  - Step 2: Devide the application into pages and design the UI
+  - Step 2: Divide the application into pages and design the UI
 
     - Plan the desired UI. Overall UI and the page-level UI
     - Break the desired UI into React components
     - Design a static version in Figma\AdobeXD. Start with a wireframe and
       continue to the final design, including user flow simulations
 
-  - Step 3: Devide the application into feature categories
+  - Step 3: Divide the application into feature categories
 
     - Plan the application's state management and data flow
 
@@ -979,3 +980,7 @@ Additional `Hooks`:
   lot of boilerplate code like variables for each input, onChange handlers, etc.
   It also has a lot of built-in validation tools, and it's generally a good
   React library to know
+
+- `React Hook Form` is a library that helps manage forms in React by reducing
+  boilerplate code, providing validation tools, and simplifying form state
+  management
