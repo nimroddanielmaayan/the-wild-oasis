@@ -1,33 +1,33 @@
-import { useState } from 'react';
-import Button from '../../ui/Button';
-import Form from '../../ui/Form';
-import Input from '../../ui/Input';
-import FormRowVertical from '../../ui/FormRowVertical';
-import { useLogin } from './useLogin';
-import SpinnerMini from '../../ui/SpinnerMini';
+import { useState } from 'react'
+import Button from '../../ui/Button'
+import Form from '../../ui/Form'
+import Input from '../../ui/Input'
+import FormRowVertical from '../../ui/FormRowVertical'
+import { useLogin } from './useLogin'
+import SpinnerMini from '../../ui/SpinnerMini'
 
 function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { login, isLoading } = useLogin();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const { login, isLoading } = useLogin()
 
   function handleSubmit(e) {
-    e.preventDefault();
-    if (!email || !password) return;
+    e.preventDefault()
+    if (!email || !password) return
     login(
       { email, password },
       {
         onSettled: () => {
-          setEmail('');
-          setPassword('');
+          setEmail('')
+          setPassword('')
         },
       }
-    );
+    )
   }
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormRowVertical label='Email address (example email: nimrod@example.com)'>
+      <FormRowVertical label='Email address (example email: user@example.com)'>
         <Input
           type='email'
           id='email'
@@ -39,7 +39,7 @@ function LoginForm() {
         />
       </FormRowVertical>
 
-      <FormRowVertical label='Password (example password: 123456)'>
+      <FormRowVertical label='Password (example password: 12345678)'>
         <Input
           type='password'
           id='password'
@@ -55,7 +55,7 @@ function LoginForm() {
         </Button>
       </FormRowVertical>
     </Form>
-  );
+  )
 }
 
-export default LoginForm;
+export default LoginForm
